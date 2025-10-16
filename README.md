@@ -12,7 +12,7 @@ For users without SLURM, the corresponding `Run.R` files can be executed in a si
 
 ### Simulation 1: Logistic Regression
 
-This experiment plots the power curves for the **aCSS** and **aCSS-B** methods along with the oracle.
+This experiment plots the power curves for **[aCSS]** and **aCSS-B** methods along with the oracle.
 
 1. Navigate to the directory `logistic`:
    ```bash
@@ -34,8 +34,8 @@ This experiment plots the power curves for the **aCSS** and **aCSS-B** methods a
 
 ### Simulation 2: Mixture of Gaussians
 
-This experiment plots the power curves for the **regularized aCSS** and **aCSS-B** methods along with the oracle.  
-The *p*-values used to generate the power curves for the oracle and regularized aCSS methods were provided by the authors of the regularized aCSS paper.  
+This experiment plots the power curves for **[regularized aCSS]** and **aCSS-B** methods along with the oracle.  
+The *p*-values used to generate the power curves for the oracle and **[regularized aCSS]** methods were provided by the authors of the **[regularized aCSS]** paper.  
 The seeds used to run `Run.R` were chosen to match those used by the original authors, enabling a fair comparison of performance across methods.
 
 1. Navigate to the directory `gaussian_mixture`:
@@ -81,11 +81,12 @@ For brevity, we list the common steps below.
 
 ## References
 
-- **aCSS**  
-  Barber, R. F., & Janson, L. (2022). *Testing goodness-of-fit and conditional independence with approximate co-sufficient sampling.*  
-  *The Annals of Statistics, 50*(5), 2514–2544.  
-  [https://doi.org/10.1214/22-AOS2208](https://doi.org/10.1214/22-AOS2208)
+Barber, R. F., & Janson, L. (2022). *Testing goodness-of-fit and conditional independence with approximate co-sufficient sampling.*  
+*The Annals of Statistics, 50*(5), 2514–2544.  
+[https://doi.org/10.1214/22-AOS2208](https://doi.org/10.1214/22-AOS2208)
 
-- **Regularized aCSS**  
-  Zhu, W., & Barber, R. F. (2023). *Approximate co-sufficient sampling with regularization.*  
-  *arXiv preprint* [arXiv:2309.08063](https://arxiv.org/abs/2309.08063)
+Zhu, W., & Barber, R. F. (2023). *Approximate co-sufficient sampling with regularization.*  
+*arXiv preprint* [arXiv:2309.08063](https://arxiv.org/abs/2309.08063)
+
+[aCSS]: https://doi.org/10.1214/22-AOS2208
+[regularized aCSS]: https://arxiv.org/abs/2309.08063
