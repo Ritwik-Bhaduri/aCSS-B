@@ -83,7 +83,7 @@ For brevity, we list the common steps below.
 
 Barber, R. F., & Janson, L. (2022). *Testing goodness-of-fit and conditional independence with approximate co-sufficient sampling.*  
 *The Annals of Statistics, 50*(5), 2514–2544.  
-[https://arxiv.org/abs/2007.09851](https://arxiv.org/abs/2007.09851)
+[arxiv:2007.09851](https://arxiv.org/abs/2007.09851)
 
 Zhu, W., & Barber, R. F. (2023). *Approximate co-sufficient sampling with regularization.*  
 *arXiv preprint* [arXiv:2309.08063](https://arxiv.org/abs/2309.08063)
