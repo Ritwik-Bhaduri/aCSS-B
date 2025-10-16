@@ -1,0 +1,6 @@
+This folder contains the following R scripts:
+1. run_sim.R is the high-level script that, when called (after setting directories appropriately), runs a single aCSS test (and corresponding oracle test) for all of the signal sizes in one of the four examples described in the paper and saves the resulting p-values. For the experiments in the paper, this script was run on a computing cluster 500 times (run=1,…,500) for each of the four examples.
+2. aCSS_source.R contains general aCSS testing functions that are not example-specific, including the main function called in run_sim.R: run_one_trial().
+3. logistic_source.R, behrens_fisher_source.R, gaussian_spatial_source.R, and multivariate_t_source.R each contain example-specific functions for aCSS testing in the four examples described in the paper. These scripts are sourced by the function run_one_trial(), which takes as input the example to simulate.
+4. plot_results.R reproduces the exact plots from the paper, once you have run RC_final.R 500 times for each example and saved the output.
+5. parboot_vs_CSS.R reproduces the figure comparing parametric bootstrap versus CSS in the introduction.
