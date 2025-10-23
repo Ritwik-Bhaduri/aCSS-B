@@ -43,10 +43,10 @@ plot_data <- data.frame(
   Power = do.call(c, power_list),
   StdErr = do.call(c, stderr_list),
   Method = factor(rep(methods, each = length(parameters$signal)), 
-                  levels = c("reg-aCSS", "aCSS-B", "oracle"))
+                  levels = c("aCSS-B", "reg-aCSS", "oracle"))
 )
 
-colors = c("#2CA02C", "#E74C3C", "#0943A8")
+colors = c("#E74C3C", "#2CA02C", "#0943A8")
 p <- ggplot(plot_data, aes(x = Signal, y = Power)) +
   geom_line(aes(linetype = Method, color = Method), linewidth = 1) +
   geom_errorbar(aes(ymin = Power - StdErr, ymax = Power + StdErr, color = Method), width = 0.005, show.legend = FALSE) +
@@ -54,10 +54,11 @@ p <- ggplot(plot_data, aes(x = Signal, y = Power)) +
   labs(title = "Power Comparison", x = expression(atop("", pi[0])), y = "Power\n") +
   theme_light() +
   scale_color_manual(values = colors)+
-  scale_linetype_manual(values = c("dotdash", "solid", "dashed"))+
+  scale_linetype_manual(values = c("solid", "dotdash", "dashed"))+
   geom_hline(yintercept = 0.05, col = 'black', linetype = "dotted") + 
   theme(legend.position = "right", legend.title = element_text(size = 22), legend.text = element_text(size = 22), 
         axis.text = element_text(size = 22), axis.title = element_text(size = 22), plot.title = element_blank())
+
 
 p; ggsave("plots/Power mixture of gaussians.pdf", p, width = 9, height = 6, dpi = 600)
 
