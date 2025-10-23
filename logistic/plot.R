@@ -1,3 +1,5 @@
+library(ggplot2)
+
 example = "logistic"
 dir <- ifelse(requireNamespace("rstudioapi", quietly=TRUE) && rstudioapi::isAvailable(),
               dirname(rstudioapi::getActiveDocumentContext()$path),
