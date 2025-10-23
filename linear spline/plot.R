@@ -32,11 +32,11 @@ plot_data <- data.frame(
   Signal = rep(as.numeric(unique(rownames(pval_matrix))), 2),
   Power = c(power_bacss, power_oracle),
   StdErr = c(stderr_bacss, stderr_oracle),
-  Method = factor(rep(c("aCSS-B", "oracle"), each = length(signal)), levels = c("oracle","aCSS-B"))
+  Method = factor(rep(c("aCSS-B", "oracle"), each = length(signal)), levels = c("aCSS-B","oracle"))
 )
 
 library(latex2exp)
-colors = c("#0943A8","#E74C3C")
+colors = c("#E74C3C","#0943A8")
 p <- ggplot(plot_data, aes(x = Signal, y = Power)) +
   geom_line(aes(linetype = Method, color = Method), linewidth = 1) +
   geom_errorbar(aes(ymin = Power - StdErr, ymax = Power + StdErr, color = Method), width = 0.02, show.legend = FALSE) +
@@ -46,10 +46,9 @@ p <- ggplot(plot_data, aes(x = Signal, y = Power)) +
   theme_light() +
   theme(axis.title.x = element_text(margin = margin(t = 22)))+ 
   scale_color_manual(values = colors)+
-  scale_linetype_manual(values = c("dashed","solid"))+
+  scale_linetype_manual(values = c("solid","dashed"))+
   geom_hline(yintercept = 0.05, col = 'black', linetype = "dotted") + 
   theme(legend.position = "right", legend.title = element_text(size = 22), legend.text = element_text(size = 22), 
         axis.text = element_text(size = 22), axis.title = element_text(size = 22), plot.title = element_blank())
 
 p; ggsave("plots/Power linear spline.pdf", p, width = 9, height = 6, dpi = 600)
-
