@@ -31,10 +31,10 @@ plot_data <- data.frame(
   Signal = rep(as.numeric(unique(rownames(pval_matrix))), 2),
   Power = c(power_bacss, power_oracle),
   StdErr = c(stderr_bacss, stderr_oracle),
-  Method = factor(rep(c("aCSS-B", "oracle"), each = length(signal)), levels = c("oracle","aCSS-B"))
+  Method = factor(rep(c("aCSS-B", "oracle"), each = length(signal)), levels = c("aCSS-B", "oracle"))
 )
 
-colors = c("#0943A8", "#E74C3C")
+colors = c("#E74C3C", "#0943A8")
 p <- ggplot(plot_data, aes(x = Signal, y = Power, label = Method)) +
   geom_line(aes(linetype = Method, color = Method), linewidth = 1) +  # Differentiate lines by method
   geom_errorbar(aes(ymin = Power - StdErr, ymax = Power + StdErr, color = Method), width = 0.01, show.legend = FALSE) +
@@ -43,15 +43,15 @@ p <- ggplot(plot_data, aes(x = Signal, y = Power, label = Method)) +
   theme_light() +
   scale_color_manual(values = colors)+
   ylim(c(0,1)) +
-  scale_linetype_manual(values = c("dashed", "solid", "dotdash"))+
+  scale_linetype_manual(values = c("solid", "dashed"))+
   geom_hline(yintercept = 0.05, col = 'black', linetype = "dotted") + 
   theme(
-    legend.position = "right",  # Keep legend on the right
-    legend.title = element_text(size = 22),  # Larger legend title
-    legend.text = element_text(size = 22),  # Larger legend text
-    axis.text = element_text(size = 22),  # Increase axis text size
-    axis.title = element_text(size = 22),  # Bold axis titles
-    plot.title = element_blank()#element_text(size = 18, face = "bold", hjust = 0.5)  # Center title
+    legend.position = "right",
+    legend.title = element_text(size = 22),
+    legend.text = element_text(size = 22),
+    axis.text = element_text(size = 22),
+    axis.title = element_text(size = 22),
+    plot.title = element_blank()
   )
 
 p 
