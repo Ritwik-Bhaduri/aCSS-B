@@ -33,7 +33,7 @@ plot_data <- data.frame(
   StdErr = do.call(c, stderr_list),
   Method = rep(methods, each = length(parameters$signal))
 )
-plot_data$Method <- factor(plot_data$Method,levels = c("oracle", "aCSS-B", "aCSS"))
+plot_data$Method <- factor(plot_data$Method,levels = c("aCSS-B", "aCSS", "oracle"))
 my_cols <- c(oracle="#0943A8",`aCSS-B`="#E74C3C", aCSS="#2CA02C")
 my_ltys <- c(oracle   = "dashed",`aCSS-B` = "solid",aCSS="dotdash")
 
