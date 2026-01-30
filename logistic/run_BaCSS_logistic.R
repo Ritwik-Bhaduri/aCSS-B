@@ -15,6 +15,7 @@ setwd(dir) # if this fails, change this to wherever this file is stored.
 ### load parameters and generate data from aCSS code
 example = "logistic"
 source(paste0("../aCSS code/", example,'_source.R'))
+source("BaCSS_logistic_source.R")
 parameters = generate_parameters()
 parameters$example$n = 100
 parameters$theta0=rep(0.2, 5)
