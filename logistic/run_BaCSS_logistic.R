@@ -17,11 +17,6 @@ example = "logistic"
 source(paste0("../aCSS code/", example,'_source.R'))
 source("BaCSS_logistic_source.R")
 parameters = generate_parameters()
-parameters$example$n = 100
-parameters$theta0=rep(0.2, 5)
-nsignal = length(parameters$signal)
-isignal = 6 # this specifies signal=0.5 (signal is basically c which is multiplied to beta_0 and beta_1 in end of page 24 in aCSS paper)
-experiment = generate_experiment(isignal,parameters)
 
 ## Set parameters for aCSS-Bayes.
 ## This code is written for prior: beta ~ N(0, tau^2)
