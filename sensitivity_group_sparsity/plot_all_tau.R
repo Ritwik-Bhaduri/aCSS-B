@@ -87,4 +87,4 @@ p <- ggplot(plot_data, aes(x = Signal, y = Power)) +
 
 p 
 
-ggsave(paste0("/plots/Sensitivity_group_sparsity_B=25.pdf"), p, width = 9, height = 6, dpi = 600)
+ggsave(paste0("/plots/Sensitivity_group_sparsity.pdf"), p, width = 9, height = 6, dpi = 600)
