@@ -15,7 +15,7 @@ source(paste0("BaCSS_",example, '_source.R'))
 ## Prior: beta_{I_{g^\star}} ~ N(rep(bayes_acss_parameters$mu, n_{g^\star}), bayes_acss_parameters$tau^2 * diag(n_{g^\star})), n_{g^\star} = dimension of beta_{I_{g^\star}}
 
 parameters = generate_parameters()
-bayes_acss_parameters = list(mu = 0, tau = 1, # prior parameters
+bayes_acss_parameters = list(mu = 5, tau = 1, # prior parameters
                              M=300, B = 25, n = parameters$n, L = 1)
 
 start_time <- Sys.time()
