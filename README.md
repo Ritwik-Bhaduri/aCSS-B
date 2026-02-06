@@ -121,7 +121,7 @@ For brevity, we list the common steps below.
 
 2. Submit jobs using SLURM:
    ```bash
-   sbatch --array=1-250 run_all_B.sh
+   sbatch --array=1-50 run_all_B.sh
    ```
 
 3. Compile results:
