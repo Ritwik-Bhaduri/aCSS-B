@@ -77,6 +77,54 @@ For brevity, we list the common steps below.
    Rscript plot.R
    ```
 
+### Simulations S4.1: Sensitivity analysis wrt tau
+#### logistic regression
+
+1. Navigate to directory `sensitivity_logistic_regression`:
+   ```bash
+   cd sensitivity_logistic_regression
+   ```
+
+2. Submit jobs using SLURM:
+   ```bash
+   sbatch --array=1-250 run_all_tau.sh
+   ```
+
+3. Compile results:
+   ```bash
+   Rscript plot_all_tau.R
+   ```
+#### group sparse regression
+
+1. Navigate to directory `sensitivity_group_sparsity`:
+   ```bash
+   cd sensitivity_group_sparsity
+   ```
+
+2. Submit jobs using SLURM:
+   ```bash
+   sbatch --array=1-250 run_all_tau.sh
+   ```
+
+3. Compile results:
+   ```bash
+   Rscript plot_all_tau.R
+   ```
+### Simulations S4.2: Sensitivity analysis wrt B
+1. Navigate to directory `sensitivity_group_sparsity`:
+   ```bash
+   cd sensitivity_group_sparsity
+   ```
+
+2. Submit jobs using SLURM:
+   ```bash
+   sbatch --array=1-250 run_all_B.sh
+   ```
+
+3. Compile results:
+   ```bash
+   Rscript plot_all_B.R
+   ```
 ---
 
 ## References
