@@ -10,12 +10,12 @@ dir <- ifelse(requireNamespace("rstudioapi", quietly=TRUE) && rstudioapi::isAvai
 setwd(dir) # if this fails, change this to wherever this file is stored.
 example = gsub(" ", "_", tail(strsplit(dir, "- ")[[1]], 1))
 
-file_list = list.files(path="./result files_beta_fixed/", pattern=NULL, all.files=FALSE,full.names=FALSE)
+file_list = list.files(path="./result files/", pattern=NULL, all.files=FALSE,full.names=FALSE)
 
 result_list = list()
 for(k in 1:length(file_list)){
   file = file_list[k]
-  result_list[[k]] = readRDS(paste0("result files_beta_fixed/", file))
+  result_list[[k]] = readRDS(paste0("result files/", file))
 }
 pval_mat = do.call(rbind,result_list)
 pval_df = data.frame(pval_mat)
