@@ -21,12 +21,12 @@ generate_parameters = function(){
   
   parameters$grp_sizes = get_grp_sizes(parameters$p, parameters$G)
   parameters$grp_indices = split(1:parameters$p, unlist(sapply(1:parameters$G, function(g) rep(g, parameters$grp_sizes[g]))))
-  parameters$beta = c(rnorm(parameters$grp_sizes[1], 0, 1), rep(0, sum(parameters$grp_sizes[-1]))) 
+  parameters$beta = c(rep(1, rnorm(parameters$grp_sizes[1]), rep(0, sum(parameters$grp_sizes[-1]))) 
   
   parameters$non_null = list()
   parameters$non_null$beta = matrix(NA, nrow = parameters$p, ncol = parameters$n_signal - 1)
   
-  second_group_coef = rnorm(parameters$grp_sizes[2], 0, 1)
+  second_group_coef = rep(1, parameters$grp_sizes[2])
   for(j in 1:(parameters$n_signal - 1)){
     if(j == 1){
       parameters$non_null$beta[,1] = parameters$beta
@@ -67,13 +67,17 @@ generate_X_null = function(parameters,experiment){
 
 Tfun = function(X,parameters,experiment){
   grp = unlist(sapply(1:parameters$G, function(g) rep(g, parameters$grp_sizes[g])))
-  lambda_best = cv.gglasso(experiment$example$Z, X, group = grp, lambda = NULL, pred.loss = "L1", nfolds = 5)$lambda.min
+  lambda_best = cv.gglasso(experiment$example$Z, X, group = grp, lambda = NULL, pred.loss = "L2", nfolds = 5)$lambda.min
   beta_hat = gglasso(experiment$example$Z, X, group = grp, lambda = lambda_best)$beta
   
   max_abs_beta = abs(unlist(lapply(split(beta_hat, grp), max)))
   max_beta_index = which.max(max_abs_beta)
-  t = as.numeric(sum(max_abs_beta[-max_beta_index]) / max_abs_beta[max_beta_index])
-  
+
+  if(max_abs_beta[max_beta_index] == 0){
+    t = 0
+  }else{
+    t = as.numeric(sum(max_abs_beta[-max_beta_index]) / max_abs_beta[max_beta_index])
+  }
   return(t)
 }
 
