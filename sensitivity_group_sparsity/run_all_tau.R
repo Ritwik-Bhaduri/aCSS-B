@@ -45,4 +45,4 @@ df = do.call(rbind,df_list)
 end_time <- Sys.time()
 print(end_time-start_time)
 
-saveRDS(object = df, file = paste0("result files_beta_fixed/pvalues_aCSS_B_", task_id, ".rds"))
+saveRDS(object = df, file = paste0("result files/pvalues_aCSS_B_", task_id, ".rds"))
