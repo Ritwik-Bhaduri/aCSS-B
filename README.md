@@ -76,6 +76,7 @@ For brevity, we list the common steps below.
    ```bash
    Rscript plot.R
    ```
+---
 
 ### Simulations S4.1: Sensitivity analysis wrt tau
 #### logistic regression
@@ -110,6 +111,8 @@ For brevity, we list the common steps below.
    ```bash
    Rscript plot_all_tau.R
    ```
+---
+
 ### Simulations S4.2: Sensitivity analysis wrt B
 1. Navigate to directory `sensitivity_group_sparsity`:
    ```bash
